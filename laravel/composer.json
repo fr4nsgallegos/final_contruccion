@@ -1,8 +1,0 @@
-{
-    "require": {
-        "brackets/craftable": "^7.0"
-    },
-    "require-dev": {
-        "brackets/admin-generator": "^6.1"
-    }
-}
