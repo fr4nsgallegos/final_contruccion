@@ -40,3 +40,26 @@ $factory->define(App\Models\Locale::class, static function (Faker\Generator $fak
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\DiaSemana::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'orden' => $faker->sentence,
+        'sigla' => $faker->sentence,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Profesor::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'apellidos' => $faker->sentence,
+        'email' => $faker->email,
+        'dni' => $faker->sentence,
+        'usuario' => $faker->sentence,
+        'password' => bcrypt($faker->password),
+        
+        
+    ];
+});

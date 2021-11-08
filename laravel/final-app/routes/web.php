@@ -73,3 +73,33 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('dia-semanas')->name('dia-semanas/')->group(static function() {
+            Route::get('/',                                             'DiaSemanaController@index')->name('index');
+            Route::get('/create',                                       'DiaSemanaController@create')->name('create');
+            Route::post('/',                                            'DiaSemanaController@store')->name('store');
+            Route::get('/{diaSemana}/edit',                             'DiaSemanaController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'DiaSemanaController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{diaSemana}',                                 'DiaSemanaController@update')->name('update');
+            Route::delete('/{diaSemana}',                               'DiaSemanaController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('profesors')->name('profesors/')->group(static function() {
+            Route::get('/',                                             'ProfesorController@index')->name('index');
+            Route::get('/create',                                       'ProfesorController@create')->name('create');
+            Route::post('/',                                            'ProfesorController@store')->name('store');
+            Route::get('/{profesor}/edit',                              'ProfesorController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ProfesorController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{profesor}',                                  'ProfesorController@update')->name('update');
+            Route::delete('/{profesor}',                                'ProfesorController@destroy')->name('destroy');
+        });
+    });
+});

@@ -68,5 +68,44 @@ return [
         ],
     ],
 
+    'dia-semana' => [
+        'title' => 'Dia Semana',
+
+        'actions' => [
+            'index' => 'Dia Semana',
+            'create' => 'New Dia Semana',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'orden' => 'Orden',
+            'sigla' => 'Sigla',
+            
+        ],
+    ],
+
+    'profesor' => [
+        'title' => 'Profesor',
+
+        'actions' => [
+            'index' => 'Profesor',
+            'create' => 'New Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'apellidos' => 'Apellidos',
+            'email' => 'Email',
+            'dni' => 'Dni',
+            'usuario' => 'Usuario',
+            'password' => 'Password',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

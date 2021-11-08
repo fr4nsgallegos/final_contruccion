@@ -29,8 +29,8 @@ return array(
     '2cffec82183ee1cea088009cef9a6fc3' => $vendorDir . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     '8825ede83f2f289127722d4e842cf7e8' => $vendorDir . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+    '17d016dc52a631c1e74d2eb8fdd57342' => $vendorDir . '/laravel/helpers/src/helpers.php',
     'a1af1fc0cffb5f61cbaf64dbe030fdb9' => $vendorDir . '/laravel/legacy-factories/helpers.php',
     '0c3c22e27afa83be19b4c938f4c6e9ea' => $vendorDir . '/spatie/laravel-backup/src/Helpers/functions.php',
     'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
-    '17d016dc52a631c1e74d2eb8fdd57342' => $vendorDir . '/laravel/helpers/src/helpers.php',
 );
