@@ -30,5 +30,24 @@ return [
         ],
     ],
 
+    'malla-academica' => [
+        'title' => 'Malla Academica',
+
+        'actions' => [
+            'index' => 'Malla Academica',
+            'create' => 'New Malla Academica',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'anio_creacion' => 'Anio creacion',
+            'cantidad_anios' => 'Cantidad anios',
+            'cantidad_semestre' => 'Cantidad semestre',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

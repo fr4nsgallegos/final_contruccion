@@ -43,3 +43,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         Route::post('/password',                                    'ProfileController@updatePassword')->name('update-password');
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('malla-academicas')->name('malla-academicas/')->group(static function() {
+            Route::get('/',                                             'MallaAcademicaController@index')->name('index');
+            Route::get('/create',                                       'MallaAcademicaController@create')->name('create');
+            Route::post('/',                                            'MallaAcademicaController@store')->name('store');
+            Route::get('/{mallaAcademica}/edit',                        'MallaAcademicaController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MallaAcademicaController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{mallaAcademica}',                            'MallaAcademicaController@update')->name('update');
+            Route::delete('/{mallaAcademica}',                          'MallaAcademicaController@destroy')->name('destroy');
+        });
+    });
+});

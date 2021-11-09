@@ -17,4 +17,14 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'last_login_at' => $faker->dateTime,
         
     ];
+});/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MallaAcademica::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'anio_creacion' => $faker->date(),
+        'cantidad_anios' => $faker->randomNumber(5),
+        'cantidad_semestre' => $faker->randomNumber(5),
+        
+        
+    ];
 });
