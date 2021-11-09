@@ -28,3 +28,13 @@ $factory->define(App\Models\MallaAcademica::class, static function (Faker\Genera
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\DiaSemana::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'orden' => $faker->sentence,
+        'sigla' => $faker->sentence,
+        
+        
+    ];
+});

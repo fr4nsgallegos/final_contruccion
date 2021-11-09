@@ -49,5 +49,23 @@ return [
         ],
     ],
 
+    'dia-semana' => [
+        'title' => 'Dia Semana',
+
+        'actions' => [
+            'index' => 'Dia Semana',
+            'create' => 'New Dia Semana',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'orden' => 'Orden',
+            'sigla' => 'Sigla',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
