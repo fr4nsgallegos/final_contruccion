@@ -38,3 +38,11 @@ $factory->define(App\Models\DiaSemana::class, static function (Faker\Generator $
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CursoAcademico::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        
+        
+    ];
+});

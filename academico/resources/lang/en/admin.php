@@ -67,5 +67,21 @@ return [
         ],
     ],
 
+    'curso-academico' => [
+        'title' => 'Curso Academico',
+
+        'actions' => [
+            'index' => 'Curso Academico',
+            'create' => 'New Curso Academico',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -73,3 +73,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('curso-academicos')->name('curso-academicos/')->group(static function() {
+            Route::get('/',                                             'CursoAcademicoController@index')->name('index');
+            Route::get('/create',                                       'CursoAcademicoController@create')->name('create');
+            Route::post('/',                                            'CursoAcademicoController@store')->name('store');
+            Route::get('/{cursoAcademico}/edit',                        'CursoAcademicoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CursoAcademicoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{cursoAcademico}',                            'CursoAcademicoController@update')->name('update');
+            Route::delete('/{cursoAcademico}',                          'CursoAcademicoController@destroy')->name('destroy');
+        });
+    });
+});
