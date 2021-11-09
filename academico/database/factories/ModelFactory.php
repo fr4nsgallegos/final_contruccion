@@ -46,3 +46,12 @@ $factory->define(App\Models\CursoAcademico::class, static function (Faker\Genera
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\AnioAcademico::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'orden' => $faker->sentence,
+        
+        
+    ];
+});

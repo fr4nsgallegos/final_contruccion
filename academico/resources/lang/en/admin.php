@@ -83,5 +83,22 @@ return [
         ],
     ],
 
+    'anio-academico' => [
+        'title' => 'Anio Academico',
+
+        'actions' => [
+            'index' => 'Anio Academico',
+            'create' => 'New Anio Academico',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'orden' => 'Orden',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -4,3 +4,4 @@ import './profile-edit-password';
 import './malla-academica';
 import './dia-semana';
 import './curso-academico';
+import './anio-academico';

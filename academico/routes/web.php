@@ -88,3 +88,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('anio-academicos')->name('anio-academicos/')->group(static function() {
+            Route::get('/',                                             'AnioAcademicoController@index')->name('index');
+            Route::get('/create',                                       'AnioAcademicoController@create')->name('create');
+            Route::post('/',                                            'AnioAcademicoController@store')->name('store');
+            Route::get('/{anioAcademico}/edit',                         'AnioAcademicoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AnioAcademicoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{anioAcademico}',                             'AnioAcademicoController@update')->name('update');
+            Route::delete('/{anioAcademico}',                           'AnioAcademicoController@destroy')->name('destroy');
+        });
+    });
+});
