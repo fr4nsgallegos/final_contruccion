@@ -100,5 +100,23 @@ return [
         ],
     ],
 
+    'local' => [
+        'title' => 'Local',
+
+        'actions' => [
+            'index' => 'Local',
+            'create' => 'New Local',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'tipo' => 'Tipo',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

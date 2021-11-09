@@ -55,3 +55,13 @@ $factory->define(App\Models\AnioAcademico::class, static function (Faker\Generat
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Local::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'sigla' => $faker->sentence,
+        'tipo' => $faker->sentence,
+        
+        
+    ];
+});

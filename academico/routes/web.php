@@ -103,3 +103,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('locals')->name('locals/')->group(static function() {
+            Route::get('/',                                             'LocalController@index')->name('index');
+            Route::get('/create',                                       'LocalController@create')->name('create');
+            Route::post('/',                                            'LocalController@store')->name('store');
+            Route::get('/{local}/edit',                                 'LocalController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'LocalController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{local}',                                     'LocalController@update')->name('update');
+            Route::delete('/{local}',                                   'LocalController@destroy')->name('destroy');
+        });
+    });
+});

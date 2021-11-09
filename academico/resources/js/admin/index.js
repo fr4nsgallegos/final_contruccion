@@ -5,3 +5,4 @@ import './malla-academica';
 import './dia-semana';
 import './curso-academico';
 import './anio-academico';
+import './local';
