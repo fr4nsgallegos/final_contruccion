@@ -118,5 +118,24 @@ return [
         ],
     ],
 
+    'sesion-clase' => [
+        'title' => 'Sesion Clase',
+
+        'actions' => [
+            'index' => 'Sesion Clase',
+            'create' => 'New Sesion Clase',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'turno' => 'Turno',
+            'local_id' => 'Local',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

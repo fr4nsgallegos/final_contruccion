@@ -6,3 +6,4 @@ import './dia-semana';
 import './curso-academico';
 import './anio-academico';
 import './local';
+import './sesion-clase';

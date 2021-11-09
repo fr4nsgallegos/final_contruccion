@@ -118,3 +118,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('sesion-clases')->name('sesion-clases/')->group(static function() {
+            Route::get('/',                                             'SesionClaseController@index')->name('index');
+            Route::get('/create',                                       'SesionClaseController@create')->name('create');
+            Route::post('/',                                            'SesionClaseController@store')->name('store');
+            Route::get('/{sesionClase}/edit',                           'SesionClaseController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SesionClaseController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{sesionClase}',                               'SesionClaseController@update')->name('update');
+            Route::delete('/{sesionClase}',                             'SesionClaseController@destroy')->name('destroy');
+        });
+    });
+});
