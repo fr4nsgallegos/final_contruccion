@@ -76,3 +76,11 @@ $factory->define(App\Models\SesionClase::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\TipologiaClase::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        
+        
+    ];
+});

@@ -133,3 +133,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('tipologia-clases')->name('tipologia-clases/')->group(static function() {
+            Route::get('/',                                             'TipologiaClaseController@index')->name('index');
+            Route::get('/create',                                       'TipologiaClaseController@create')->name('create');
+            Route::post('/',                                            'TipologiaClaseController@store')->name('store');
+            Route::get('/{tipologiaClase}/edit',                        'TipologiaClaseController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TipologiaClaseController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{tipologiaClase}',                            'TipologiaClaseController@update')->name('update');
+            Route::delete('/{tipologiaClase}',                          'TipologiaClaseController@destroy')->name('destroy');
+        });
+    });
+});

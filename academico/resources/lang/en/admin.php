@@ -137,5 +137,21 @@ return [
         ],
     ],
 
+    'tipologia-clase' => [
+        'title' => 'Tipologia Clase',
+
+        'actions' => [
+            'index' => 'Tipologia Clase',
+            'create' => 'New Tipologia Clase',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

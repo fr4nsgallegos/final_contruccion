@@ -7,3 +7,4 @@ import './curso-academico';
 import './anio-academico';
 import './local';
 import './sesion-clase';
+import './tipologia-clase';
