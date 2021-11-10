@@ -153,5 +153,23 @@ return [
         ],
     ],
 
+    'asignatura' => [
+        'title' => 'Asignatura',
+
+        'actions' => [
+            'index' => 'Asignatura',
+            'create' => 'New Asignatura',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'sesion_clase_id' => 'Sesion clase',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

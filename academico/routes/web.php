@@ -148,3 +148,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('asignaturas')->name('asignaturas/')->group(static function() {
+            Route::get('/',                                             'AsignaturaController@index')->name('index');
+            Route::get('/create',                                       'AsignaturaController@create')->name('create');
+            Route::post('/',                                            'AsignaturaController@store')->name('store');
+            Route::get('/{asignatura}/edit',                            'AsignaturaController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AsignaturaController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{asignatura}',                                'AsignaturaController@update')->name('update');
+            Route::delete('/{asignatura}',                              'AsignaturaController@destroy')->name('destroy');
+        });
+    });
+});
