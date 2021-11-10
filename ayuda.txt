@@ -1,0 +1,7 @@
+php artisan make:migration create_anio_academico_table
+
+php artisan migrate
+
+php artisan admin:generate Anio_Academico
+
+https://geoinnova.org/blog-territorio/como-clonar-un-proyecto-de-laravel-desde-github/
