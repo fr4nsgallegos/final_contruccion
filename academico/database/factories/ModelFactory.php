@@ -94,3 +94,13 @@ $factory->define(App\Models\Asignatura::class, static function (Faker\Generator 
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SemestreAcademico::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'orden' => $faker->sentence,
+        'sesion_clase_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

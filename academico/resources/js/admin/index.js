@@ -9,3 +9,4 @@ import './local';
 import './sesion-clase';
 import './tipologia-clase';
 import './asignatura';
+import './semestre-academico';

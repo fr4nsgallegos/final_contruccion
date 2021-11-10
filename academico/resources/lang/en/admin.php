@@ -171,5 +171,23 @@ return [
         ],
     ],
 
+    'semestre-academico' => [
+        'title' => 'Semestre Academico',
+
+        'actions' => [
+            'index' => 'Semestre Academico',
+            'create' => 'New Semestre Academico',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'orden' => 'Orden',
+            'sesion_clase_id' => 'Sesion clase',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

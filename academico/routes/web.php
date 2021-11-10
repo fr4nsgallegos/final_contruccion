@@ -163,3 +163,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('semestre-academicos')->name('semestre-academicos/')->group(static function() {
+            Route::get('/',                                             'SemestreAcademicoController@index')->name('index');
+            Route::get('/create',                                       'SemestreAcademicoController@create')->name('create');
+            Route::post('/',                                            'SemestreAcademicoController@store')->name('store');
+            Route::get('/{semestreAcademico}/edit',                     'SemestreAcademicoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SemestreAcademicoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{semestreAcademico}',                         'SemestreAcademicoController@update')->name('update');
+            Route::delete('/{semestreAcademico}',                       'SemestreAcademicoController@destroy')->name('destroy');
+        });
+    });
+});
