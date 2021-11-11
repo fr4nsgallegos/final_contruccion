@@ -117,3 +117,17 @@ $factory->define(App\Models\Profesor::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Turno::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'sigla' => $faker->sentence,
+        'orden' => $faker->sentence,
+        'hora_inicio' => $faker->time(),
+        'hora_fin' => $faker->time(),
+        'dia_semana_id' => $faker->randomNumber(5),
+        'sesion_clase_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

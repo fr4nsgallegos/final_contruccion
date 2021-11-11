@@ -11,3 +11,4 @@ import './tipologia-clase';
 import './asignatura';
 import './semestre-academico';
 import './profesor';
+import './turno';

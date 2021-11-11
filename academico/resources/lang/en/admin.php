@@ -210,5 +210,27 @@ return [
         ],
     ],
 
+    'turno' => [
+        'title' => 'Turno',
+
+        'actions' => [
+            'index' => 'Turno',
+            'create' => 'New Turno',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'orden' => 'Orden',
+            'hora_inicio' => 'Hora inicio',
+            'hora_fin' => 'Hora fin',
+            'dia_semana_id' => 'Dia semana',
+            'sesion_clase_id' => 'Sesion clase',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
