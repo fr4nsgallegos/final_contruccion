@@ -223,3 +223,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('malla-cursos')->name('malla-cursos/')->group(static function() {
+            Route::get('/',                                             'MallaCursoController@index')->name('index');
+            Route::get('/create',                                       'MallaCursoController@create')->name('create');
+            Route::post('/',                                            'MallaCursoController@store')->name('store');
+            Route::get('/{mallaCurso}/edit',                            'MallaCursoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MallaCursoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{mallaCurso}',                                'MallaCursoController@update')->name('update');
+            Route::delete('/{mallaCurso}',                              'MallaCursoController@destroy')->name('destroy');
+        });
+    });
+});

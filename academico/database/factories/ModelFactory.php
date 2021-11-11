@@ -140,3 +140,17 @@ $factory->define(App\Models\LocalTipologium::class, static function (Faker\Gener
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MallaCurso::class, static function (Faker\Generator $faker) {
+    return [
+        'cantidad_horas_tipologia' => $faker->randomNumber(5),
+        'cantidad_credito' => $faker->randomFloat,
+        'malla_academica_id' => $faker->randomNumber(5),
+        'asignatura_id' => $faker->randomNumber(5),
+        'tipologia_clase_id' => $faker->randomNumber(5),
+        'semestre_academico_id' => $faker->randomNumber(5),
+        'anio_academico_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

@@ -249,5 +249,27 @@ return [
         ],
     ],
 
+    'malla-curso' => [
+        'title' => 'Malla - Asignatura',
+
+        'actions' => [
+            'index' => 'Malla - Asignatura',
+            'create' => 'Nueva Malla - Asignatura',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'cantidad_horas_tipologia' => 'Hrs tipologia',
+            'cantidad_credito' => 'Credito',
+            'malla_academica_id' => 'Malla academica',
+            'asignatura_id' => 'Asignatura',
+            'tipologia_clase_id' => 'Tipologia',
+            'semestre_academico_id' => 'Semestre',
+            'anio_academico_id' => 'Año academico',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
