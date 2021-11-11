@@ -35,7 +35,7 @@ return [
 
         'actions' => [
             'index' => 'Malla Academica',
-            'create' => 'New Malla Academica',
+            'create' => 'Nueva Malla Academica',
             'edit' => 'Edit :name',
         ],
 
@@ -50,11 +50,11 @@ return [
     ],
 
     'dia-semana' => [
-        'title' => 'Dia Semana',
+        'title' => 'Dia de la Semana',
 
         'actions' => [
-            'index' => 'Dia Semana',
-            'create' => 'New Dia Semana',
+            'index' => 'Dia de la Semana',
+            'create' => 'Nuevo Dia de la Semana',
             'edit' => 'Edit :name',
         ],
 
@@ -72,7 +72,7 @@ return [
 
         'actions' => [
             'index' => 'Curso Academico',
-            'create' => 'New Curso Academico',
+            'create' => 'Nuevo Curso Academico',
             'edit' => 'Edit :name',
         ],
 
@@ -84,11 +84,11 @@ return [
     ],
 
     'anio-academico' => [
-        'title' => 'Anio Academico',
+        'title' => 'Año Academico',
 
         'actions' => [
-            'index' => 'Anio Academico',
-            'create' => 'New Anio Academico',
+            'index' => 'Año Academico',
+            'create' => 'Nuevo Año Academico',
             'edit' => 'Edit :name',
         ],
 
@@ -105,7 +105,7 @@ return [
 
         'actions' => [
             'index' => 'Local',
-            'create' => 'New Local',
+            'create' => 'Nuevo Local',
             'edit' => 'Edit :name',
         ],
 
@@ -119,11 +119,11 @@ return [
     ],
 
     'sesion-clase' => [
-        'title' => 'Sesion Clase',
+        'title' => 'Sesion de Clase',
 
         'actions' => [
-            'index' => 'Sesion Clase',
-            'create' => 'New Sesion Clase',
+            'index' => 'Sesion de Clase',
+            'create' => 'Nueva Sesion de Clase',
             'edit' => 'Edit :name',
         ],
 
@@ -138,11 +138,11 @@ return [
     ],
 
     'tipologia-clase' => [
-        'title' => 'Tipologia Clase',
+        'title' => 'Tipologia de Clase',
 
         'actions' => [
-            'index' => 'Tipologia Clase',
-            'create' => 'New Tipologia Clase',
+            'index' => 'Tipologia de Clase',
+            'create' => 'Nueva Tipologia de Clase',
             'edit' => 'Edit :name',
         ],
 
@@ -158,7 +158,7 @@ return [
 
         'actions' => [
             'index' => 'Asignatura',
-            'create' => 'New Asignatura',
+            'create' => 'Nueva Asignatura',
             'edit' => 'Edit :name',
         ],
 
@@ -176,7 +176,7 @@ return [
 
         'actions' => [
             'index' => 'Semestre Academico',
-            'create' => 'New Semestre Academico',
+            'create' => 'Nuevo Semestre Academico',
             'edit' => 'Edit :name',
         ],
 
@@ -194,7 +194,7 @@ return [
 
         'actions' => [
             'index' => 'Profesor',
-            'create' => 'New Profesor',
+            'create' => 'Nuevo Profesor',
             'edit' => 'Edit :name',
         ],
 
@@ -215,7 +215,7 @@ return [
 
         'actions' => [
             'index' => 'Turno',
-            'create' => 'New Turno',
+            'create' => 'Nuevo Turno',
             'edit' => 'Edit :name',
         ],
 
@@ -233,11 +233,11 @@ return [
     ],
 
     'local-tipologium' => [
-        'title' => 'Local Tipologia',
+        'title' => 'Local - Tipologia',
 
         'actions' => [
             'index' => 'Local Tipologia',
-            'create' => 'New Local Tipologium',
+            'create' => 'Nuevo Local - Tipologia',
             'edit' => 'Edit :name',
         ],
 
