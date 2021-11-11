@@ -10,3 +10,4 @@ import './sesion-clase';
 import './tipologia-clase';
 import './asignatura';
 import './semestre-academico';
+import './profesor';

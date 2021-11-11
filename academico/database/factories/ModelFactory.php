@@ -104,3 +104,16 @@ $factory->define(App\Models\SemestreAcademico::class, static function (Faker\Gen
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Profesor::class, static function (Faker\Generator $faker) {
+    return [
+        'nombre' => $faker->sentence,
+        'apellido' => $faker->sentence,
+        'dni' => $faker->sentence,
+        'usuario' => $faker->sentence,
+        'email' => $faker->email,
+        'password' => bcrypt($faker->password),
+        
+        
+    ];
+});

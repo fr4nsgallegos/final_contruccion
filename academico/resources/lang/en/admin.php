@@ -189,5 +189,26 @@ return [
         ],
     ],
 
+    'profesor' => [
+        'title' => 'Profesor',
+
+        'actions' => [
+            'index' => 'Profesor',
+            'create' => 'New Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'apellido' => 'Apellido',
+            'dni' => 'Dni',
+            'usuario' => 'Usuario',
+            'email' => 'Email',
+            'password' => 'Password',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
