@@ -131,3 +131,12 @@ $factory->define(App\Models\Turno::class, static function (Faker\Generator $fake
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\LocalTipologium::class, static function (Faker\Generator $faker) {
+    return [
+        'local_id' => $faker->randomNumber(5),
+        'tipologia_clase_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

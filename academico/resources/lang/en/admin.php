@@ -232,5 +232,22 @@ return [
         ],
     ],
 
+    'local-tipologium' => [
+        'title' => 'Local Tipologia',
+
+        'actions' => [
+            'index' => 'Local Tipologia',
+            'create' => 'New Local Tipologium',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'local_id' => 'Local',
+            'tipologia_clase_id' => 'Tipologia clase',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

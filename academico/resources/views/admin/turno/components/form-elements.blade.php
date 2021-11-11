@@ -58,8 +58,6 @@
             @endforeach
         </select>
 
-        <!--<input type="text" v-model="form.dia_semana_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('dia_semana_id'), 'form-control-success': fields.dia_semana_id && fields.dia_semana_id.valid}" id="dia_semana_id" name="dia_semana_id" placeholder="{{ trans('admin.turno.columns.dia_semana_id') }}">-->
-
         <div v-if="errors.has('dia_semana_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('dia_semana_id') }}</div>
     </div>
 </div>
@@ -75,8 +73,6 @@
 
             @endforeach
         </select>
-
-        <!--<input type="text" v-model="form.sesion_clase_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('sesion_clase_id'), 'form-control-success': fields.sesion_clase_id && fields.sesion_clase_id.valid}" id="sesion_clase_id" name="sesion_clase_id" placeholder="{{ trans('admin.turno.columns.sesion_clase_id') }}"> -->
 
         <div v-if="errors.has('sesion_clase_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('sesion_clase_id') }}</div>
     </div>

@@ -12,3 +12,4 @@ import './asignatura';
 import './semestre-academico';
 import './profesor';
 import './turno';
+import './local-tipologium';
