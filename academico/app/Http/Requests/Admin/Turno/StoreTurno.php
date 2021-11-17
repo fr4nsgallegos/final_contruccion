@@ -31,7 +31,6 @@ class StoreTurno extends FormRequest
             'orden' => ['required', 'string'],
             'hora_inicio' => ['required', 'date_format:H:i:s'],
             'hora_fin' => ['required', 'date_format:H:i:s'],
-            'dia_semana_id' => ['required', 'integer'],
             'sesion_clase_id' => ['required', 'integer'],
             
         ];

@@ -18,6 +18,8 @@ class CreateAdminUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('dni');
+            $table->string('usuario');
             $table->string('email');
             $table->string('password');
             $table->rememberToken();
@@ -29,7 +31,7 @@ class CreateAdminUsersTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->unique(['email', 'deleted_at']);
+            $table->unique(['email', 'deleted_at', 'usuario']);
         });
 
         $connection = config('database.default');

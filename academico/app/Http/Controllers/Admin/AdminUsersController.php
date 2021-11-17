@@ -3,53 +3,32 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\AdminUser\BulkDestroyAdminUser;
 use App\Http\Requests\Admin\AdminUser\DestroyAdminUser;
-use App\Http\Requests\Admin\AdminUser\ImpersonalLoginAdminUser;
 use App\Http\Requests\Admin\AdminUser\IndexAdminUser;
 use App\Http\Requests\Admin\AdminUser\StoreAdminUser;
 use App\Http\Requests\Admin\AdminUser\UpdateAdminUser;
-use Brackets\AdminAuth\Models\AdminUser;
-use Spatie\Permission\Models\Role;
-use Brackets\AdminAuth\Activation\Facades\Activation;
-use Brackets\AdminAuth\Services\ActivationService;
+use App\Models\AdminUser;
 use Brackets\AdminListing\Facades\AdminListing;
+use Carbon\Carbon;
 use Exception;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class AdminUsersController extends Controller
 {
 
     /**
-     * Guard used for admin user
-     *
-     * @var string
-     */
-    protected $guard = 'admin';
-
-    /**
-     * AdminUsersController constructor.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->guard = config('admin-auth.defaults.guard');
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @param IndexAdminUser $request
-     * @return Factory|View
+     * @return array|Factory|View
      */
     public function index(IndexAdminUser $request)
     {
@@ -59,17 +38,22 @@ class AdminUsersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'first_name', 'last_name', 'email', 'activated', 'forbidden', 'language', 'last_login_at'],
+            ['id', 'first_name', 'last_name', 'dni', 'usuario', 'email', 'activated', 'forbidden', 'language', 'last_login_at'],
 
             // set columns to searchIn
-            ['id', 'first_name', 'last_name', 'email', 'language']
+            ['id', 'first_name', 'last_name', 'dni', 'usuario', 'email', 'language']
         );
 
         if ($request->ajax()) {
-            return ['data' => $data, 'activation' => Config::get('admin-auth.activation_enabled')];
+            if ($request->has('bulk')) {
+                return [
+                    'bulkItems' => $data->pluck('id')
+                ];
+            }
+            return ['data' => $data];
         }
 
-        return view('admin.admin-user.index', ['data' => $data, 'activation' => Config::get('admin-auth.activation_enabled')]);
+        return view('admin.admin-user.index', ['data' => $data]);
     }
 
     /**
@@ -82,10 +66,7 @@ class AdminUsersController extends Controller
     {
         $this->authorize('admin.admin-user.create');
 
-        return view('admin.admin-user.create', [
-            'activation' => Config::get('admin-auth.activation_enabled'),
-            'roles' => Role::where('guard_name', $this->guard)->get(),
-        ]);
+        return view('admin.admin-user.create');
     }
 
     /**
@@ -97,13 +78,10 @@ class AdminUsersController extends Controller
     public function store(StoreAdminUser $request)
     {
         // Sanitize input
-        $sanitized = $request->getModifiedData();
+        $sanitized = $request->getSanitized();
 
         // Store the AdminUser
         $adminUser = AdminUser::create($sanitized);
-
-        // But we do have a roles, so we need to attach the roles to the adminUser
-        $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -137,12 +115,9 @@ class AdminUsersController extends Controller
     {
         $this->authorize('admin.admin-user.edit', $adminUser);
 
-        $adminUser->load('roles');
 
         return view('admin.admin-user.edit', [
             'adminUser' => $adminUser,
-            'activation' => Config::get('admin-auth.activation_enabled'),
-            'roles' => Role::where('guard_name', $this->guard)->get(),
         ]);
     }
 
@@ -156,18 +131,16 @@ class AdminUsersController extends Controller
     public function update(UpdateAdminUser $request, AdminUser $adminUser)
     {
         // Sanitize input
-        $sanitized = $request->getModifiedData();
+        $sanitized = $request->getSanitized();
 
         // Update changed values AdminUser
         $adminUser->update($sanitized);
 
-        // But we do have a roles, so we need to attach the roles to the adminUser
-        if ($request->input('roles')) {
-            $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
-        }
-
         if ($request->ajax()) {
-            return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return [
+                'redirect' => url('admin/admin-users'),
+                'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
+            ];
         }
 
         return redirect('admin/admin-users');
@@ -193,48 +166,27 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Resend activation e-mail
+     * Remove the specified resources from storage.
      *
-     * @param Request $request
-     * @param ActivationService $activationService
-     * @param AdminUser $adminUser
-     * @return array|RedirectResponse
+     * @param BulkDestroyAdminUser $request
+     * @throws Exception
+     * @return Response|bool
      */
-    public function resendActivationEmail(Request $request, ActivationService $activationService, AdminUser $adminUser)
+    public function bulkDestroy(BulkDestroyAdminUser $request) : Response
     {
-        if (Config::get('admin-auth.activation_enabled')) {
-            $response = $activationService->handle($adminUser);
-            if ($response == Activation::ACTIVATION_LINK_SENT) {
-                if ($request->ajax()) {
-                    return ['message' => trans('brackets/admin-ui::admin.operation.succeeded')];
-                }
+        DB::transaction(static function () use ($request) {
+            collect($request->data['ids'])
+                ->chunk(1000)
+                ->each(static function ($bulkChunk) {
+                    DB::table('adminUsers')->whereIn('id', $bulkChunk)
+                        ->update([
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                    ]);
 
-                return redirect()->back();
-            } else {
-                if ($request->ajax()) {
-                    abort(409, trans('brackets/admin-ui::admin.operation.failed'));
-                }
+                    // TODO your code goes here
+                });
+        });
 
-                return redirect()->back();
-            }
-        } else {
-            if ($request->ajax()) {
-                abort(400, trans('brackets/admin-ui::admin.operation.not_allowed'));
-            }
-
-            return redirect()->back();
-        }
+        return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
-
-    /**
-     * @param ImpersonalLoginAdminUser $request
-     * @param AdminUser $adminUser
-     * @return RedirectResponse
-     * @throws  AuthorizationException
-     */
-    public function impersonalLogin(ImpersonalLoginAdminUser $request, AdminUser $adminUser) {
-        Auth::login($adminUser);
-        return redirect()->back();
-    }
-
 }

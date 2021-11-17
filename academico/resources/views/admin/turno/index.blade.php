@@ -55,13 +55,12 @@
                                         <th is='sortable' :column="'orden'">{{ trans('admin.turno.columns.orden') }}</th>
                                         <th is='sortable' :column="'hora_inicio'">{{ trans('admin.turno.columns.hora_inicio') }}</th>
                                         <th is='sortable' :column="'hora_fin'">{{ trans('admin.turno.columns.hora_fin') }}</th>
-                                        <th is='sortable' :column="'dia_semana_id'">{{ trans('admin.turno.columns.dia_semana_id') }}</th>
                                         <th is='sortable' :column="'sesion_clase_id'">{{ trans('admin.turno.columns.sesion_clase_id') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="10">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/turnos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -86,7 +85,6 @@
                                         <td>@{{ item.orden }}</td>
                                         <td>@{{ item.hora_inicio | time }}</td>
                                         <td>@{{ item.hora_fin | time }}</td>
-                                        <td>@{{ item.dia_semana_id }}</td>
                                         <td>@{{ item.sesion_clase_id }}</td>
                                         
                                         <td>

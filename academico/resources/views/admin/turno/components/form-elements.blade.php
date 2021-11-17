@@ -46,34 +46,19 @@
 </div>
 
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('dia_semana_id'), 'has-success': fields.dia_semana_id && fields.dia_semana_id.valid }">
-    <label for="dia_semana_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.turno.columns.dia_semana_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        
-        <select v-model="form.dia_semana_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('dia_semana_id'), 'form-control-success': fields.dia_semana_id && fields.dia_semana_id.valid}" id="dia_semana_id" name="dia_semana_id" placeholder="{{ trans('admin.turno.columns.dia_semana_id') }}">
-            <option value=""> Escoga un dia de la semana</option>
-            @foreach ($dias as $dia_semana)
-                <option value="{{$dia_semana[ 'id' ]}}">{{$dia_semana[ 'nombre' ]}}</option>
-
-            @endforeach
-        </select>
-
-        <div v-if="errors.has('dia_semana_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('dia_semana_id') }}</div>
-    </div>
-</div>
-
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('sesion_clase_id'), 'has-success': fields.sesion_clase_id && fields.sesion_clase_id.valid }">
     <label for="sesion_clase_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.turno.columns.sesion_clase_id') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        
+            
         <select v-model="form.sesion_clase_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('sesion_clase_id'), 'form-control-success': fields.sesion_clase_id && fields.sesion_clase_id.valid}" id="sesion_clase_id" name="sesion_clase_id" placeholder="{{ trans('admin.turno.columns.sesion_clase_id') }}">
-            <option value=""> Escoga una sesion de clase</option>
+
             @foreach ($sesiones as $sesion_clase)
-                <option value="{{$sesion_clase[ 'id' ]}}">{{$sesion_clase[ 'nombre' ]}}</option>
+                <option value="" disabled=""> Escoga una Sesion Academica</option>
+                <option value="{{$sesion_clase['id']}}">{{$sesion_clase['nombre']}}</option>
 
             @endforeach
         </select>
-
+        <!--<input type="text" v-model="form.sesion_clase_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('sesion_clase_id'), 'form-control-success': fields.sesion_clase_id && fields.sesion_clase_id.valid}" id="sesion_clase_id" name="sesion_clase_id" placeholder="{{ trans('admin.turno.columns.sesion_clase_id') }}">-->
         <div v-if="errors.has('sesion_clase_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('sesion_clase_id') }}</div>
     </div>
 </div>

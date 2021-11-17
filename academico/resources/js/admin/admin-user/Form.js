@@ -7,6 +7,8 @@ Vue.component('admin-user-form', {
             form: {
                 first_name:  '' ,
                 last_name:  '' ,
+                dni:  '' ,
+                usuario:  '' ,
                 email:  '' ,
                 password:  '' ,
                 activated:  false ,
@@ -16,4 +18,5 @@ Vue.component('admin-user-form', {
             }
         }
     }
+
 });

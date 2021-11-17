@@ -14,7 +14,6 @@ class Turno extends Model
         'orden',
         'hora_inicio',
         'hora_fin',
-        'dia_semana_id',
         'sesion_clase_id',
     
     ];

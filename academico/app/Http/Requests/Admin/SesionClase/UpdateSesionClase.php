@@ -28,7 +28,6 @@ class UpdateSesionClase extends FormRequest
         return [
             'nombre' => ['sometimes', Rule::unique('Sesion_Clase', 'nombre')->ignore($this->sesionClase->getKey(), $this->sesionClase->getKeyName()), 'string'],
             'sigla' => ['sometimes', 'string'],
-            'turno' => ['sometimes', 'string'],
             'local_id' => ['sometimes', 'integer'],
             
         ];

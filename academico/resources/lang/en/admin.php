@@ -271,5 +271,186 @@ return [
         ],
     ],
 
+    'admin-user' => [
+        'title' => 'Admin Users',
+
+        'actions' => [
+            'index' => 'Admin Users',
+            'create' => 'New Admin User',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'first_name' => 'First name',
+            'last_name' => 'Last name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'activated' => 'Activated',
+            'forbidden' => 'Forbidden',
+            'language' => 'Language',
+            
+        ],
+    ],
+
+    'admin-user' => [
+        'title' => 'Profesor',
+
+        'actions' => [
+            'index' => 'Profesor',
+            'create' => 'Nuevo Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'first_name' => 'Nombre',
+            'last_name' => 'Apellidos',
+            'dni' => 'Dni',
+            'usuario' => 'Usuario',
+            'email' => 'Email',
+            'password' => 'Password',
+            'password_repeat' => 'Confirmar Password',
+            'activated' => 'Activated',
+            'forbidden' => 'Forbidden',
+            'language' => 'Idioma',
+            
+        ],
+    ],
+
+    'malla-profesor' => [
+        'title' => 'Malla - Profesor',
+
+        'actions' => [
+            'index' => 'Malla - Profesor',
+            'create' => 'Nueva Malla - Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'malla_academica_id' => 'Malla academica',
+            'admin_users_id' => 'Profesor',
+            'curso_academico_id' => 'Curso academico',
+            
+        ],
+    ],
+
+    'malla-profesor' => [
+        'title' => 'Malla Profesor',
+
+        'actions' => [
+            'index' => 'Malla Profesor',
+            'create' => 'New Malla Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'malla_academica_id' => 'Malla academica',
+            'admin_users_id' => 'Admin users',
+            'curso_academico_id' => 'Curso academico',
+            
+        ],
+    ],
+
+    'sesion-clase' => [
+        'title' => 'Sesion Clase',
+
+        'actions' => [
+            'index' => 'Sesion Clase',
+            'create' => 'New Sesion Clase',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'turno' => 'Turno',
+            'local_id' => 'Local',
+            
+        ],
+    ],
+
+    'turno' => [
+        'title' => 'Turno',
+
+        'actions' => [
+            'index' => 'Turno',
+            'create' => 'New Turno',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'orden' => 'Orden',
+            'hora_inicio' => 'Hora inicio',
+            'hora_fin' => 'Hora fin',
+            'dia_semana_id' => 'Dia semana',
+            'sesion_clase_id' => 'Sesion clase',
+            
+        ],
+    ],
+
+    'malla-profesor' => [
+        'title' => 'Malla Profesor',
+
+        'actions' => [
+            'index' => 'Malla Profesor',
+            'create' => 'New Malla Profesor',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'asignatura_id' => 'Asignatura',
+            'admin_users_id' => 'Admin users',
+            'curso_academico_id' => 'Curso academico',
+            
+        ],
+    ],
+
+    'turno' => [
+        'title' => 'Turno',
+
+        'actions' => [
+            'index' => 'Turno',
+            'create' => 'New Turno',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'orden' => 'Orden',
+            'hora_inicio' => 'Hora inicio',
+            'hora_fin' => 'Hora fin',
+            'sesion_clase_id' => 'Sesion clase',
+            
+        ],
+    ],
+
+    'sesion-clase' => [
+        'title' => 'Sesion Clase',
+
+        'actions' => [
+            'index' => 'Sesion Clase',
+            'create' => 'New Sesion Clase',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'sigla' => 'Sigla',
+            'local_id' => 'Local',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

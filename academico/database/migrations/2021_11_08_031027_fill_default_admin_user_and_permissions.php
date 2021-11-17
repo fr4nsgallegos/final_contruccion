@@ -106,6 +106,8 @@ class FillDefaultAdminUserAndPermissions extends Migration
             [
                 'first_name' => 'Administrator',
                 'last_name' => 'Administrator',
+                'dni'=> '12345678',
+                'usuario'=>'brackets',
                 'email' => 'administrator@brackets.sk',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,

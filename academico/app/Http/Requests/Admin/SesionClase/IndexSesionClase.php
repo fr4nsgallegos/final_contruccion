@@ -25,7 +25,7 @@ class IndexSesionClase extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nombre,sigla,turno,local_id|nullable',
+            'orderBy' => 'in:id,nombre,sigla,local_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

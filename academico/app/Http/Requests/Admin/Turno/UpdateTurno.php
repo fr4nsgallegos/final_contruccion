@@ -31,7 +31,6 @@ class UpdateTurno extends FormRequest
             'orden' => ['sometimes', 'string'],
             'hora_inicio' => ['sometimes', 'date_format:H:i:s'],
             'hora_fin' => ['sometimes', 'date_format:H:i:s'],
-            'dia_semana_id' => ['sometimes', 'integer'],
             'sesion_clase_id' => ['sometimes', 'integer'],
             
         ];

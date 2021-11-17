@@ -14,3 +14,4 @@ import './profesor';
 import './turno';
 import './local-tipologium';
 import './malla-curso';
+import './malla-profesor';

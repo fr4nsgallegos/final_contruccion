@@ -38,10 +38,10 @@ class SesionClaseController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nombre', 'sigla', 'turno', 'local_id'],
+            ['id', 'nombre', 'sigla', 'local_id'],
 
             // set columns to searchIn
-            ['id', 'nombre', 'sigla', 'turno']
+            ['id', 'nombre', 'sigla']
         );
 
         if ($request->ajax()) {
@@ -52,8 +52,9 @@ class SesionClaseController extends Controller
             }
             return ['data' => $data];
         }
-
-        return view('admin.sesion-clase.index', ['data' => $data]);
+        $locals = Local:: all();
+        return view('admin.sesion-clase.index', ['data' => $data])
+        ->with(compact('locals'));
     }
 
     /**
@@ -66,7 +67,8 @@ class SesionClaseController extends Controller
     {
         $this->authorize('admin.sesion-clase.create');
         $locals = Local:: all();
-        return view('admin.sesion-clase.create', compact('locals'));
+        return view('admin.sesion-clase.create')
+        ->with(compact('locals'));
     }
 
     /**
@@ -118,7 +120,8 @@ class SesionClaseController extends Controller
         $locals = Local:: all();
         return view('admin.sesion-clase.edit', [
             'sesionClase' => $sesionClase,
-        ], compact('locals'));
+        ])
+        ->with(compact('locals'));
     }
 
     /**

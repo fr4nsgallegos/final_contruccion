@@ -183,13 +183,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
         Route::prefix('profesors')->name('profesors/')->group(static function() {
-            Route::get('/',                                             'ProfesorController@index')->name('index');
-            Route::get('/create',                                       'ProfesorController@create')->name('create');
-            Route::post('/',                                            'ProfesorController@store')->name('store');
-            Route::get('/{profesor}/edit',                              'ProfesorController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ProfesorController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{profesor}',                                  'ProfesorController@update')->name('update');
-            Route::delete('/{profesor}',                                'ProfesorController@destroy')->name('destroy');
+            Route::get('/',                                             'AdminUsersController@index')->name('index');
+            Route::get('/create',                                       'AdminUsersController@create')->name('create');
+            Route::post('/',                                            'AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/edit',                             'AdminUsersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AdminUsersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{adminUser}',                                 'AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}',                               'AdminUsersController@destroy')->name('destroy');
         });
     });
 });
@@ -235,6 +235,81 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'MallaCursoController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{mallaCurso}',                                'MallaCursoController@update')->name('update');
             Route::delete('/{mallaCurso}',                              'MallaCursoController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('admin-users')->name('admin-users/')->group(static function() {
+            Route::get('/',                                             'AdminUsersController@index')->name('index');
+            Route::get('/create',                                       'AdminUsersController@create')->name('create');
+            Route::post('/',                                            'AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/edit',                             'AdminUsersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AdminUsersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{adminUser}',                                 'AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}',                               'AdminUsersController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('malla-profesors')->name('malla-profesors/')->group(static function() {
+            Route::get('/',                                             'MallaProfesorController@index')->name('index');
+            Route::get('/create',                                       'MallaProfesorController@create')->name('create');
+            Route::post('/',                                            'MallaProfesorController@store')->name('store');
+            Route::get('/{mallaProfesor}/edit',                         'MallaProfesorController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MallaProfesorController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{mallaProfesor}',                             'MallaProfesorController@update')->name('update');
+            Route::delete('/{mallaProfesor}',                           'MallaProfesorController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('malla-profesors')->name('malla-profesors/')->group(static function() {
+            Route::get('/',                                             'MallaProfesorController@index')->name('index');
+            Route::get('/create',                                       'MallaProfesorController@create')->name('create');
+            Route::post('/',                                            'MallaProfesorController@store')->name('store');
+            Route::get('/{mallaProfesor}/edit',                         'MallaProfesorController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MallaProfesorController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{mallaProfesor}',                             'MallaProfesorController@update')->name('update');
+            Route::delete('/{mallaProfesor}',                           'MallaProfesorController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('sesion-clases')->name('sesion-clases/')->group(static function() {
+            Route::get('/',                                             'SesionClaseController@index')->name('index');
+            Route::get('/create',                                       'SesionClaseController@create')->name('create');
+            Route::post('/',                                            'SesionClaseController@store')->name('store');
+            Route::get('/{sesionClase}/edit',                           'SesionClaseController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SesionClaseController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{sesionClase}',                               'SesionClaseController@update')->name('update');
+            Route::delete('/{sesionClase}',                             'SesionClaseController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('turnos')->name('turnos/')->group(static function() {
+            Route::get('/',                                             'TurnoController@index')->name('index');
+            Route::get('/create',                                       'TurnoController@create')->name('create');
+            Route::post('/',                                            'TurnoController@store')->name('store');
+            Route::get('/{turno}/edit',                                 'TurnoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TurnoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{turno}',                                     'TurnoController@update')->name('update');
+            Route::delete('/{turno}',                                   'TurnoController@destroy')->name('destroy');
         });
     });
 });

@@ -25,7 +25,7 @@ class IndexTurno extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nombre,sigla,orden,hora_inicio,hora_fin,dia_semana_id,sesion_clase_id|nullable',
+            'orderBy' => 'in:id,nombre,sigla,orden,hora_inicio,hora_fin,sesion_clase_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

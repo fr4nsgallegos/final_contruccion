@@ -28,7 +28,6 @@ class StoreSesionClase extends FormRequest
         return [
             'nombre' => ['required', Rule::unique('Sesion_Clase', 'nombre'), 'string'],
             'sigla' => ['required', 'string'],
-            'turno' => ['required', 'string'],
             'local_id' => ['required', 'integer'],
             
         ];

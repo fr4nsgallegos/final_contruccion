@@ -64,7 +64,7 @@ class MallaAcademicaController extends Controller
     public function create()
     {
         $this->authorize('admin.malla-academica.create');
-
+        
         return view('admin.malla-academica.create');
     }
 
@@ -114,7 +114,7 @@ class MallaAcademicaController extends Controller
     {
         $this->authorize('admin.malla-academica.edit', $mallaAcademica);
 
-
+        ->with(compact('admins'))
         return view('admin.malla-academica.edit', [
             'mallaAcademica' => $mallaAcademica,
         ]);

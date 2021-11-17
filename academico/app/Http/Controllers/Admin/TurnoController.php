@@ -10,7 +10,6 @@ use App\Http\Requests\Admin\Turno\StoreTurno;
 use App\Http\Requests\Admin\Turno\UpdateTurno;
 use App\Models\Turno;
 use App\Models\SesionClase;
-use App\Models\DiaSemana;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -39,7 +38,7 @@ class TurnoController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nombre', 'sigla', 'orden', 'hora_inicio', 'hora_fin', 'dia_semana_id', 'sesion_clase_id'],
+            ['id', 'nombre', 'sigla', 'orden', 'hora_inicio', 'hora_fin', 'sesion_clase_id'],
 
             // set columns to searchIn
             ['id', 'nombre', 'sigla', 'orden']
@@ -67,8 +66,8 @@ class TurnoController extends Controller
     {
         $this->authorize('admin.turno.create');
         $sesiones = SesionClase:: all();
-        $dias = DiaSemana:: all();
-        return view('admin.turno.create', compact('sesiones'), compact('dias'));
+        return view('admin.turno.create')
+        ->with(compact('sesiones'));
     }
 
     /**
@@ -118,10 +117,10 @@ class TurnoController extends Controller
         $this->authorize('admin.turno.edit', $turno);
 
         $sesiones = SesionClase:: all();
-        $dias = DiaSemana:: all();
         return view('admin.turno.edit', [
             'turno' => $turno,
-        ], compact('sesiones'), compact('dias'));
+        ])
+        ->with(compact('sesiones'));
     }
 
     /**

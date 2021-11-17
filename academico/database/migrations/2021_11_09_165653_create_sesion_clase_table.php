@@ -17,7 +17,7 @@ class CreateSesionClaseTable extends Migration
             $table->increments('id');
             $table->string('nombre')->unique();
             $table->string('sigla');
-            $table->string('turno');
+            //$table->string('turno');
             $table->integer('local_id')->unsigned();
         });
 

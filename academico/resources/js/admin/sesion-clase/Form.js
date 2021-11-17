@@ -7,7 +7,6 @@ Vue.component('sesion-clase-form', {
             form: {
                 nombre:  '' ,
                 sigla:  '' ,
-                turno:  '' ,
                 local_id:  '' ,
                 
             }

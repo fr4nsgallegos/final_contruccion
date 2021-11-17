@@ -11,7 +11,6 @@ class SesionClase extends Model
     protected $fillable = [
         'nombre',
         'sigla',
-        'turno',
         'local_id',
     
     ];

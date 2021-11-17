@@ -3,9 +3,7 @@
 namespace App\Http\Requests\Admin\AdminUser;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class StoreAdminUser extends FormRequest
@@ -15,7 +13,7 @@ class StoreAdminUser extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return Gate::allows('admin.admin-user.create');
     }
@@ -27,39 +25,31 @@ class StoreAdminUser extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
+        return [
             'first_name' => ['nullable', 'string'],
             'last_name' => ['nullable', 'string'],
+            'dni' => ['required', 'string'],
+            'usuario' => ['required', Rule::unique('admin_users', 'usuario'), 'string'],
             'email' => ['required', 'email', Rule::unique('admin_users', 'email'), 'string'],
             'password' => ['required', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
+            'activated' => ['required', 'boolean'],
             'forbidden' => ['required', 'boolean'],
             'language' => ['required', 'string'],
-                
-            'roles' => ['array'],
-                
+            
         ];
-
-        if (Config::get('admin-auth.activation_enabled')) {
-            $rules['activated'] = ['required', 'boolean'];
-        }
-
-        return $rules;
     }
 
     /**
-     * Modify input data
-     *
-     * @return array
-     */
-    public function getModifiedData(): array
+    * Modify input data
+    *
+    * @return array
+    */
+    public function getSanitized(): array
     {
-        $data = $this->only(collect($this->rules())->keys()->all());
-        if (!Config::get('admin-auth.activation_enabled')) {
-            $data['activated'] = true;
-        }
-        if (!empty($data['password'])) {
-            $data['password'] = Hash::make($data['password']);
-        }
-        return $data;
+        $sanitized = $this->validated();
+
+        //Add your code for manipulation with request data here
+
+        return $sanitized;
     }
 }
