@@ -1,0 +1,15 @@
+import './admin-user';
+import './profile-edit-profile';
+import './profile-edit-password';
+import './local';
+import './tipologia-clase';
+import './dia-semana';
+import './curso-academico';
+import './anio-academico';
+import './malla-academica';
+import './sesion-clase';
+import './asignatura';
+import './semestre-academico';
+import './turno';
+import './malla-curso';
+import './malla-profesor';
