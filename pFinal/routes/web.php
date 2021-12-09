@@ -238,3 +238,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('eventos')->name('eventos/')->group(static function() {
+            Route::get('/', 'EventoController@index')->name('index');
+            Route::get('/mostrar', 'EventoController@show')->name('show');
+            Route::get('/pdf', 'EventoController@pdf')->name('eventos.pdf');
+            Route::post('/agregar', 'EventoController@store')->name('store');
+            Route::post('/editar/{id}/', 'EventoController@edit')->name('edit');
+            Route::post('/actualizar/{evento}/', 'EventoController@update')->name('update');
+            Route::post('/borrar/{id}', 'EventoController@destroy')->name('destroy');
+        });
+    });
+});

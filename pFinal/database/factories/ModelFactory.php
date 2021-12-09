@@ -178,3 +178,16 @@ $factory->define(App\Models\MallaProfesor::class, static function (Faker\Generat
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Evento::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'descripcion' => $faker->sentence,
+        'start' => $faker->dateTime,
+        'end' => $faker->dateTime,
+        'malla_profesor_id' => $faker->randomNumber(5),
+        'local_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

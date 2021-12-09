@@ -13,3 +13,4 @@ import './semestre-academico';
 import './turno';
 import './malla-curso';
 import './malla-profesor';
+import './evento';

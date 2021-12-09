@@ -294,5 +294,26 @@ return [
         ],
     ],
 
+    'evento' => [
+        'title' => 'Cronograma',
+
+        'actions' => [
+            'index' => 'Cronograma',
+            'create' => 'Nuevo Cronograma',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Título',
+            'descripcion' => 'Descripcion',
+            'start' => 'Hora de inicio',
+            'end' => 'Hora de Fin',
+            'malla_profesor_id' => 'Malla Profesor',
+            'local_id' => 'Local',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
